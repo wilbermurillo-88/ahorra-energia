@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de hábitos de consumo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="container py-3">
+    <header class="p-4 mb-4 bg-primary text-white rounded">
+        <h1>Encuesta de hábitos</h1>
+        <p>Conozcamos cómo usa energía nuestra familia.</p>
+        <nav class="nav nav-pills">
+            <a class="nav-link text-white" href="index.html">Inicio</a>
+            <a class="nav-link text-white" href="equipos.html">Mis equipos</a>
+            <a class="nav-link text-white" href="mi-factura.html">Mi factura</a>
+            <a class="nav-link text-white" href="registro.html">Registrar un equipo</a>
+            <a class="nav-link text-white" href="encuesta.html">Encuesta</a>
+        </nav>
+    </header>
+
+    <main>
+        <form id="encuesta-form" action="encuesta.html" method="get">
+            <fieldset class="border rounded p-3 mb-3">
+                <legend>Sobre el hogar</legend>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre (opcional):</label>
+                    <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Nombre de quien responde">
+                </div>
+                <div class="mb-3">
+                    <label for="correo" class="form-label">Correo electrónico:</label>
+                    <input class="form-control" type="email" id="correo" name="correo" required autocomplete="email">
+                </div>
+                <div class="mb-3">
+                    <label for="personas" class="form-label">¿Cuántas personas viven en el hogar?</label>
+                    <input class="form-control" type="number" id="personas" name="personas" min="1" max="20" required>
+                </div>
+                <div class="mb-3">
+                    <label for="equipo" class="form-label">¿Qué equipo usan más tiempo?</label>
+                    <select class="form-select" id="equipo" name="equipo" required>
+                        <option value="" selected disabled>Seleccione un equipo</option>
+                        <option value="nevera">Nevera</option>
+                        <option value="computador">Computador o portátil</option>
+                        <option value="televisor">Televisor</option>
+                        <option value="lavadora">Lavadora</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset class="border rounded p-3 mb-3">
+                <legend>Rutinas de consumo</legend>
+                <div class="mb-3">
+                    <label for="horas-tv" class="form-label">Horas de televisión en un día habitual: <span id="horas-tv-valor">3</span></label>
+                    <input class="form-range" type="range" id="horas-tv" name="horas_tv" min="0" max="12" value="3" oninput="document.getElementById('horas-tv-valor').textContent = this.value">
+                </div>
+                <p class="mb-2">¿En qué momento usan más los equipos?</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="manana" name="momento" value="manana" required>
+                    <label class="form-check-label" for="manana">En la mañana</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="tarde" name="momento" value="tarde">
+                    <label class="form-check-label" for="tarde">En la tarde</label>
+                </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="radio" id="noche" name="momento" value="noche">
+                    <label class="form-check-label" for="noche">En la noche</label>
+                </div>
+                <p class="mb-2">¿Qué hábitos practican?</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="desconectar" name="habitos" value="desconectar">
+                    <label class="form-check-label" for="desconectar">Desconectamos cargadores cuando no se usan</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="ahorro" name="habitos" value="ahorro">
+                    <label class="form-check-label" for="ahorro">Usamos modo de ahorro o suspensión</label>
+                </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="luces" name="habitos" value="luces">
+                    <label class="form-check-label" for="luces">Apagamos las luces al salir de una habitación</label>
+                </div>
+                <div class="mb-3">
+                    <label for="idea" class="form-label">¿Qué cambio ayudaría a ahorrar energía en su hogar?</label>
+                    <textarea class="form-control" id="idea" name="idea" rows="4" placeholder="Escriba su respuesta"></textarea>
+                </div>
+            </fieldset>
+
+            <button class="btn btn-primary" type="submit">Enviar encuesta</button>
+            <button class="btn btn-secondary" type="reset">Borrar respuestas</button>
+        </form>
+        <p id="encuesta-mensaje" aria-live="polite"></p>
+        <section id="encuestas-guardadas" class="mt-4" aria-live="polite"></section>
+    </main>
+
+    <footer class="mt-4 text-muted"><p>Ingeniería Web I · IU Digital de Antioquia · 2026-2</p></footer>
+    <script src="formularios.js"></script>
+</body>
+</html>

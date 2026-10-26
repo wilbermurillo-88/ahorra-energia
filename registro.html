@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- DOCTYPE: le dice al navegador que este documento es HTML5 -->
+<html lang="es">
+<!-- html: la etiqueta raiz; lang="es" indica que el contenido esta en espanol -->
+<head>
+    <!-- head: informacion SOBRE la pagina (no se ve en la ventana) -->
+    <meta charset="UTF-8">
+    <!-- charset UTF-8: permite tildes, enie y simbolos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport: la pagina se adapta al ancho del celular -->
+    <title>Registrar un equipo</title>
+    <!-- title: el texto que aparece en la pestana del navegador -->
+    <!-- Bootstrap: una hoja de estilos YA HECHA que se carga desde internet (CDN).
+         Con solo poner sus "clases" en las etiquetas, la pagina se ve ordenada. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="container py-3">
+    <!-- class="container": Bootstrap centra el contenido; py-3 = espacio arriba y abajo -->
+    <!-- p-4 = relleno; mb-4 = margen abajo; bg-primary text-white = fondo azul y letra blanca; rounded = esquinas redondas -->
+    <header class="p-4 mb-4 bg-primary text-white rounded">
+        <h1>Registrar un equipo</h1>
+        <p>Escriba los datos de un equipo de su casa.</p>
+        <!-- nav: el MENU de navegacion entre las paginas del sitio -->
+        <!-- nav nav-pills: menu con botones redondeados; cada enlace lleva class="nav-link" -->
+        <nav class="nav nav-pills">
+            <!-- a href: un ENLACE; aqui apunta a otro archivo del mismo sitio -->
+            <a class="nav-link text-white" href="index.html">Inicio</a>
+            <a class="nav-link text-white" href="equipos.html">Mis equipos</a>
+            <a class="nav-link text-white" href="mi-factura.html">Mi factura</a>
+            <a class="nav-link text-white" href="registro.html">Registrar un equipo</a>
+            <a class="nav-link text-white" href="encuesta.html">Encuesta</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- form: un FORMULARIO; action = adonde se envian los datos, method = como -->
+        <!-- Sin servidor, lo enviamos a esta misma pagina con GET: los datos aparecen en la URL -->
+        <form id="registro-form" action="registro.html" method="get">
+
+            <!-- fieldset agrupa campos relacionados; legend es su titulo -->
+            <fieldset class="border rounded p-3 mb-3">
+                <legend>Datos del equipo</legend>
+
+                <!-- label for="x" se conecta con el input id="x": al hacer clic en el texto, se activa el campo -->
+                <p>
+                    <label for="nombre">Nombre del equipo:</label>
+                    <!-- type="text": texto; required: obligatorio; placeholder: texto de ayuda -->
+                    <input class="form-control" type="text" id="nombre" name="nombre" required placeholder="Ej.: Nevera">
+                </p>
+
+                <p>
+                    <label for="potencia">Potencia (W):</label>
+                    <!-- type="number" con min y max: el navegador no deja enviar valores fuera del rango -->
+                    <input class="form-control" type="number" id="potencia" name="potencia" min="1" max="10000" required>
+                </p>
+
+                <p>
+                    <label for="horas">Horas de uso al día:</label>
+                    <input class="form-control" type="number" id="horas" name="horas" min="0" max="24" step="0.5" required>
+                </p>
+
+                <p>
+                    <label for="tipo">Tipo de equipo:</label>
+                    <!-- select: lista DESPLEGABLE; cada option es una opcion -->
+                    <select class="form-select" id="tipo" name="tipo">
+                        <option value="calor">Produce calor (ducha, plancha, estufa)</option>
+                        <option value="frio">Produce frío (nevera, aire acondicionado)</option>
+                        <option value="electronico">Electrónico (televisor, computador)</option>
+                        <option value="motor">Tiene motor (lavadora, licuadora)</option>
+                    </select>
+                </p>
+            </fieldset>
+
+            <fieldset class="border rounded p-3 mb-3">
+                <legend>Uso</legend>
+                <p>¿Cuándo lo usa más?</p>
+                <!-- radio: se puede elegir SOLO UNA opcion del grupo (mismo name) -->
+                <input type="radio" id="dia" name="momento" value="dia" checked>
+                <label for="dia">De día</label>
+                <input type="radio" id="noche" name="momento" value="noche">
+                <label for="noche">De noche (6 a 9 pm, la hora más cara)</label>
+
+                <p>
+                    <!-- checkbox: casilla que se marca o no -->
+                    <input type="checkbox" id="desconecta" name="desconecta" value="si">
+                    <label for="desconecta">Lo desconecto cuando no lo uso</label>
+                </p>
+
+                <p>
+                    <label for="fecha">Fecha del registro:</label>
+                    <!-- type="date": el navegador muestra un calendario -->
+                    <input class="form-control" type="date" id="fecha" name="fecha">
+                </p>
+
+                <p>
+                    <label for="notas">Observaciones:</label><br>
+                    <!-- textarea: texto de VARIAS lineas -->
+                    <textarea class="form-control" id="notas" name="notas" rows="3" cols="40" placeholder="Ej.: la etiqueta está borrosa"></textarea>
+                </p>
+            </fieldset>
+
+            <!-- button type="submit": ENVIA el formulario; type="reset": lo borra -->
+            <!-- btn btn-primary: boton azul; btn btn-secondary: boton gris -->
+            <button class="btn btn-primary" type="submit">Registrar</button>
+            <button class="btn btn-secondary" type="reset">Borrar</button>
+        </form>
+        <p id="equipo-mensaje" aria-live="polite"></p>
+        <section id="equipos-guardados" class="mt-4" aria-live="polite"></section>
+    </main>
+
+    <!-- text-muted = letra gris; mt-4 = margen arriba -->
+    <footer class="mt-4 text-muted">
+        <p>Ingeniería Web I · IU Digital de Antioquia · 2026-2</p>
+    </footer>
+    <script src="formularios.js"></script>
+</body>
+</html>

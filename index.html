@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!-- DOCTYPE: le dice al navegador que este documento es HTML5 -->
+<html lang="es">
+<!-- html: la etiqueta raiz; lang="es" indica que el contenido esta en espanol -->
+<head>
+    <!-- head: informacion SOBRE la pagina (no se ve en la ventana) -->
+    <meta charset="UTF-8">
+    <!-- charset UTF-8: permite tildes, enie y simbolos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport: la pagina se adapta al ancho del celular -->
+    <title>Ahorra energía en casa</title>
+    <!-- title: el texto que aparece en la pestana del navegador -->
+    <!-- Bootstrap: una hoja de estilos YA HECHA que se carga desde internet (CDN).
+        Con solo poner sus "clases" en las etiquetas, la pagina se ve ordenada. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+
+<body class="container py-3">
+    <!-- class="container": Bootstrap centra el contenido; py-3 = espacio arriba y abajo -->
+    <!-- header: el ENCABEZADO de la pagina -->
+    <!-- p-4 = relleno; mb-4 = margen abajo; bg-primary text-white = fondo azul y letra blanca; rounded = esquinas redondas -->
+    <header class="p-4 mb-4 bg-primary text-white rounded">
+        <h1>Ahorra energía en casa</h1>
+        <p>Consumo y costos de energía de mi hogar durante El Niño 2026.</p>
+        <!-- nav: el MENU de navegacion entre las paginas del sitio -->
+        <!-- nav nav-pills: menu con botones redondeados; cada enlace lleva class="nav-link" -->
+        <nav class="nav nav-pills">
+            <a class="nav-link text-white" href="index.html">Inicio</a>
+            <a class="nav-link text-white" href="equipos.html">Mis equipos</a>
+            <a class="nav-link text-white" href="mi-factura.html">Mi factura</a>
+            <a class="nav-link text-white" href="registro.html">Registrar un equipo</a>
+            <a class="nav-link text-white" href="encuesta.html">Encuesta</a>
+            <a class="nav-link text-white" href="#etiquetas-html">Etiquetas HTML</a>
+        </nav>
+    </header>
+
+    <!-- main: el CONTENIDO PRINCIPAL; solo hay uno por pagina -->
+    <main>
+        <!-- section: una SECCION tematica, con su propio titulo -->
+        <section>
+            <h2>¿Qué está pasando?</h2>
+            <p>
+                En mi casa consumimos <strong>43 kWh</strong> en el periodo más reciente de la factura;
+                el promedio que aparece allí es <strong>40 kWh</strong>. El cargo de energía fue
+                <strong>$27.551,27 COP</strong>, equivalente a cerca de <strong>$640,73 COP/kWh</strong>.
+                Durante El Niño, la menor disponibilidad de agua puede presionar el costo de generación;
+                por eso me sirve comparar el consumo real de mi hogar con los hábitos de uso de los equipos.
+            </p>
+
+            <div class="alert alert-success" role="alert">
+                En mi factura el consumo actual está 3 kWh por encima del promedio impreso de los últimos seis meses.
+                La estufa de la casa funciona con gas natural, así que no la sumé al cálculo eléctrico.
+            </div>
+
+            <p>
+                La gráfica y la tabla siguientes muestran el precio de bolsa por mes, que es un dato del mercado
+                eléctrico y no la tarifa residencial exacta de mi factura.
+            </p>
+
+            <!-- img: muestra una imagen; NO tiene etiqueta de cierre -->
+            <!-- src = ruta del archivo; alt = texto si la imagen no carga (y para lectores de pantalla) -->
+            <img class="img-fluid" src="precio_bolsa_2026.png" alt="Gráfica del precio de bolsa por mes en 2026" width="600">
+            <!-- table: una TABLA de datos -->
+            <!-- table table-striped table-bordered: filas de colores alternos y bordes -->
+
+            <table class="table table-striped table-bordered">
+                <!-- caption: el TITULO de la tabla -->
+                <caption>Precio de bolsa y nivel de los embalses, 2026</caption>
+                <!-- thead: la fila de ENCABEZADOS -->
+
+                <thead>
+                    <!-- tr: una FILA (table row) -->
+                    <tr>
+                        <!-- th: celda de ENCABEZADO (sale en negrita y centrada) -->
+                        <th>Mes</th>
+                        <th>Precio de bolsa (COP/kWh)</th>
+                        <th>Embalses (%)</th>
+                    </tr>
+                </thead>
+                
+                <!-- tbody: el CUERPO de la tabla, con los datos -->
+                <tbody>
+                    <!-- td: celda de DATOS (table data) -->
+                    <tr><td>Enero</td><td>212</td><td>78,9</td></tr>
+                    <tr><td>Febrero</td><td>124</td><td>75,0</td></tr>
+                    <tr><td>Marzo</td><td>220</td><td>67,5</td></tr>
+                    <tr><td>Abril</td><td>269</td><td>62,8</td></tr>
+                    <tr><td>Mayo</td><td>505</td><td>65,6</td></tr>
+                    <tr><td>Junio</td><td>546</td><td>73,3</td></tr>
+                    <tr><td>Julio</td><td>790</td><td>79,0</td></tr>
+                    <tr><td>Agosto</td><td>942</td><td>78,8</td></tr>
+                    <tr><td>Septiembre</td><td>677</td><td>78,4</td></tr>
+                </tbody>
+            </table>
+            <p>Fuente: XM, datos consultados en octubre de 2026.</p>
+        </section>
+
+        <section>
+            <h2>Consejos para ahorrar</h2>
+            <!-- ul: lista NO numerada (con vinetas); cada li es un elemento -->
+            <ul>
+                <li>Apagar el televisor cuando nadie lo esté viendo evita horas de consumo innecesarias.</li>
+                <li>Activar el modo de ahorro y suspender los portátiles cuando no se usan reduce su tiempo encendido.</li>
+                <li>Revisar el sello de la nevera y evitar abrirla por mucho tiempo ayuda a mantener su consumo.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Cómo calcular el consumo de un equipo</h2>
+            <!-- ol: lista NUMERADA; el orden importa -->
+            <ol>
+                <li>Busque la potencia en la etiqueta; en cargadores, los vatios calculados con voltaje por corriente son un máximo nominal.</li>
+                <li>Multiplique los vatios por las horas de uso y divida entre 1000 para estimar los kWh.</li>
+                <li>Multiplique los kWh por la tarifa de energía de la factura para estimar el costo.</li>
+            </ol>
+        </section>
+
+
+    </main>
+
+    <!-- footer: el PIE de pagina: autor, fuentes, fecha -->
+    <!-- text-muted = letra gris; mt-4 = margen arriba -->
+    <footer class="mt-4 text-muted">
+        <p>Fuentes: <a href="https://www.xm.com.co" target="_blank">XM</a> (precio de bolsa)
+           y <a href="https://www.cpc.ncep.noaa.gov" target="_blank">NOAA</a> (índice ONI).</p>
+        <p>Ingeniería Web I · IU Digital de Antioquia · 2026-2</p>
+    </footer>
+</body>
+</html>
